@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
-import { ContactForm } from '../ContactForm';
-import { ContactList } from '../ContactList';
-import { Filter } from '../Filter';
+import { ContactForm } from 'components/ContactForm';
+import { ContactList } from 'components/ContactList';
+import { Filter } from 'components/Filter';
 import { Container } from './App.styled';
 
 export class App extends Component {
@@ -21,7 +21,7 @@ export class App extends Component {
       contact => contact.name.toLowerCase() === normalizedFind
     );
     if (findName) {
-      alert(`${name} is already in contacts.`);
+      return alert(`${name} is already in contacts.`);
     }
     this.setState(({ contacts }) => ({
       contacts: [{ name, number, id: nanoid() }, ...contacts],
